@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You?</title>
+    <style>
+        body { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; background: linear-gradient(135deg, #ffe6e6, #ffb3b3); font-family: sans-serif; overflow: hidden; }
+        h1 { color: #d63031; font-size: 2rem; margin-bottom: 20px; text-align: center; }
+        .buttons { display: flex; gap: 20px; position: relative; width: 100%; justify-content: center; height: 50px; }
+        button { padding: 12px 25px; font-size: 1.2rem; border: none; border-radius: 25px; cursor: pointer; font-weight: bold; transition: 0.2s; }
+        #yesBtn { background-color: #2ecc71; color: white; }
+        #noBtn { background-color: #e74c3c; color: white; position: absolute; }
+    </style>
+</head>
+<body>
+    <h1 id="question">Will you go out with me? 🥺</h1>
+    <div class="buttons">
+        <button id="yesBtn" onclick="sayYes()">Yes</button>
+        <button id="noBtn" onmouseover="moveNo()" onclick="moveNo()">No</button>
+    </div>
+    <script>
+        function moveNo() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth - 20);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight - 20);
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+        function sayYes() {
+            document.getElementById('question').innerText = "Yay! Best decision ever! ❤️🎉";
+            document.querySelector('.buttons').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
